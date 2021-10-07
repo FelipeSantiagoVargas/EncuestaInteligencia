@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='result.css')}}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="center">
+        <div class="header">
+            <h1>RESULTADO ENCUESTA COVID-19</h1>
+        </div>
+        {% if result == False %}
+        <div class="description">
+            <h3>Usted tiene poca probabilidad de estar contagiado de COVID-19. Sin embargo, se le recomienda que siga
+                extrictamente todas las medidas de bioseguridad en su asistencia al evento.</h3>
+        </div>
+        {% else %}
+        <div class="description">
+            <h3>Usted tiene altas probabilidades de estar contagiado de COVID-19, por lo tanto se le recomienda no
+                asistir al evento.</h3>
+        </div>
+        {% endif %}
+        <div class="content">
+            <div class="button">
+                <a href="/"><button>Volver</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

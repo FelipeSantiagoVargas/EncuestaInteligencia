@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='poll.css')}}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1>ENCUESTA COVID-19</h1>
+    </div>
+    <div class="description">
+        <h3>Esta encuesta ayudara a determinar la probabilidad de que usted tenga covid, porfavor seleccione ✔ si
+            presenta alguno de estos sintomas o enfermedades en los ultimos 10 dias de manera honesta</h3>
+    </div>
+    <div class="content">
+        <form action="/predict" method="POST">
+            <div>
+                <div class="personal">
+                    <input type="text" placeholder="Nombre" name="name" id="">
+                </div>
+                <div class="personal">
+                    <input type="text" placeholder="Documento Identidad" name="id" id="">
+                </div>
+                <div class="personal">
+                    <input type="text" placeholder="Correo" name="email" id="">
+                </div>
+            </div>
+            <div>
+                <label for="">Problema Respiratorio</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Breathing_Problem" value="True" required=true> ✔
+                    <input type="radio" role="switch" name="Breathing_Problem" value="False" required=true> x
+                </div>
+            </div>
+            <div>
+                <label for="">Fiebre</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Fever" value="True" required=true> ✔
+                    <input type="radio" role="switch" name="Fever" value="False" required=true> x
+                </div>
+            </div>
+            <div>
+                <label for="">Tos Seca</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Dry_Cough" value="True" required=true> ✔
+                    <input type="radio" role="switch" name="Dry_Cough" value="False" required=true> x
+                </div>
+            </div>
+            <div>
+                <label for="">Dolor de Garganta</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Sore_throat" value="True" required=true> ✔
+                    <input type="radio" role="switch" name="Sore_throat" value="False" required=true> x
+                </div>
+            </div>
+            <div>
+                <label for="">Nariz Congestionada</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Running_Nose" value="True" required=true> ✔
+                    <input type="radio" role="switch" name="Running_Nose" value="False" required=true> x
+                </div>
+            </div>
+            <div>
+                <label for="">Asma</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Asthma" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Asthma" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Enfermedad de Pulmon Cronica</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Chronic_Lung_Disease" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Chronic_Lung_Disease" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Dolor de Cabeza</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Headache" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Headache" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Enfermedad del Corazon</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Heart_Disease" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Heart_Disease" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Diabetes</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Diabetes" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Diabetes" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Hiper Ten✔on</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Hyper_Tension" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Hyper_Tension" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Fatiga</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Fatigue" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Fatigue" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Diarrea</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Gastrointestinal" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Gastrointestinal" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Viaje al Extranjero</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Abroad_travel" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Abroad_travel" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Contacto con paciente de Covid</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Contact_with_COVID_Patient" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Contact_with_COVID_Patient" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Asistencia a evento grande</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Attended_Large_Gathering" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Attended_Large_Gathering" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Visitas a lugares publicos expuestos</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Visited_Public_Exposed_Places" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Visited_Public_Exposed_Places" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Familiares Trabajando en lugares publico expuestos</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Family_working_in_Public_Exposed_Places" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Family_working_in_Public_Exposed_Places" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Uso de Tapabocas</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Wearing_Masks" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Wearing_Masks" value="False" required="true"> x
+                </div>
+            </div>
+            <div>
+                <label for="">Desinfeccion del mercado</label>
+                <div class="group-radio">
+                    <input type="radio" role="switch" name="Sanitization_from_Market" value="True" required="true"> ✔
+                    <input type="radio" role="switch" name="Sanitization_from_Market" value="False" required="true"> x
+                </div>
+            </div>
+            <div class="button">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
